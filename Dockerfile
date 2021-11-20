@@ -12,15 +12,15 @@ RUN apt -y install expect
 # Following arguments(sh -s -- -y) skip for prompt.
 # [details] https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-# Use ENV instead source or dot command.
+# Use ENV instead of source, export and dot command.
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
-RUN echo $PATH
 RUN rustup component add rustfmt
 
 #--- Install Solana ---
 RUN sh -c "$(curl -sSfL https://release.solana.com/v1.8.0/install)"
-RUN export PATH=/root/.local/share/solana/install/active_release/bin:$PATH
+# Use ENV instead of source, export and dot command.
+ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
 
 #--- Install Node, npm, Yarn ---
 RUN apt install -y nodejs npm
