@@ -3,10 +3,13 @@ FROM debian:buster-slim
 WORKDIR /usr/src/app
 COPY . .
 
+#--- Base Command ---
+RUN echo 'alias ll="ls -la"' >> ~/.bashrc
+
 #--- Update & Install Base Packages ---
 RUN apt update
 RUN apt -y install curl
-RUN apt -y install expect
+RUN apt -y install vim
 
 #--- Setup Rust ---
 # Following arguments(sh -s -- -y) skip for prompt.
