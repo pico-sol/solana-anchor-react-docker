@@ -22,8 +22,14 @@ RUN sh -c "$(curl -sSfL https://release.solana.com/v1.8.0/install)"
 # Use ENV instead of source, export and dot command.
 ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
 
-#--- Install Node, npm, Yarn ---
-RUN apt install -y nodejs npm
+#--- Install Node ---
+RUN apt install -y nodejs
+
+RUN apt install -y npm
+RUN npm install -g n
+RUN n latest
+RUN ln -sf /usr/local/bin/node /usr/bin/node
+
 RUN npm install -g yarn
 
 #--- Install Anchor ---
