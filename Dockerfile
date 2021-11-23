@@ -8,8 +8,9 @@ RUN echo 'alias ll="ls -la"' >> ~/.bashrc
 
 #--- Update & Install Base Packages ---
 RUN apt update
-RUN apt -y install curl
-RUN apt -y install vim
+RUN apt install -y curl
+RUN apt install -y vim
+RUN apt install -y iputils-ping
 
 #--- Setup Rust ---
 # Following arguments(sh -s -- -y) skip for prompt.
@@ -21,7 +22,7 @@ RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
 RUN rustup component add rustfmt
 
 #--- Install Solana ---
-RUN sh -c "$(curl -sSfL https://release.solana.com/v1.8.0/install)"
+RUN sh -c "$(curl -sSfL https://release.solana.com/v1.8.5/install)"
 # Use ENV instead of source, export and dot command.
 ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
 
