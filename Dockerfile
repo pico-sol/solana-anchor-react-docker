@@ -22,7 +22,7 @@ RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
 RUN rustup component add rustfmt
 
 #--- Install Solana ---
-RUN sh -c "$(curl -sSfL https://release.solana.com/v1.8.5/install)"
+RUN sh -c "$(curl -sSfL https://release.solana.com/v1.9.2/install)"
 # Use ENV instead of source, export and dot command.
 ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
 
