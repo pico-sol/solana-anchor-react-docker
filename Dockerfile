@@ -11,6 +11,8 @@ RUN apt update
 RUN apt install -y curl
 RUN apt install -y vim
 RUN apt install -y iputils-ping
+RUN apt install -y git-all
+RUN apt install -y zsh
 
 #--- Setup Rust ---
 # Following arguments(sh -s -- -y) skip for prompt.
@@ -35,6 +37,8 @@ RUN n latest
 RUN ln -sf /usr/local/bin/node /usr/bin/node
 
 RUN npm install -g yarn
+# for "error:0308010C:digital envelope routines::unsupported" error
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 #--- Install Anchor ---
 RUN npm i -g @project-serum/anchor-cli
