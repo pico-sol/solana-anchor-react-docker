@@ -33,10 +33,10 @@ NAME                                    COMMAND             SERVICE             
 solana-anchor-react-docker-main_app_1   "bash"              app                 running             0.0.0.0:3000->3000/tcp
 ```
 
-If you get "no configuration file provided: not found" error, you are wrong directory.  
+If you get "no configuration file provided: not found" error, you are wrong directory. You need to be in DL directory.
 
 Connecting to Docker.
-% docker container exec -it [NAME] bash
+% docker exec -it [NAME] bash
 ```
 % docker container exec -it solana-anchor-react-docker-main_app_1 bash
 ```

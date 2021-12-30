@@ -42,6 +42,7 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 
 #--- Install Anchor ---
 RUN npm i -g @project-serum/anchor-cli
+RUN npm i -y mocha
 
 #--- Install React ---
 RUN npm install -g create-react-app
