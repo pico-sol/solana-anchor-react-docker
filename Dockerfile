@@ -5,6 +5,7 @@ COPY . .
 
 #--- Base Command ---
 RUN echo 'alias ll="ls -la"' >> ~/.bashrc
+RUN echo 'alias ll="ls -la"' >> ~/.zshenv
 
 #--- Update & Install Base Packages ---
 RUN apt update

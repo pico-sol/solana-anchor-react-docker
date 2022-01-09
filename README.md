@@ -30,7 +30,7 @@ Get Docker NAME.
 ```
 % docker-compose ps
 NAME                                    COMMAND             SERVICE             STATUS              PORTS
-solana-anchor-react-docker-main_app_1   "bash"              app                 running             0.0.0.0:3000->3000/tcp
+solana-anchor-react-docker_app_1   "bash"              app                 running             0.0.0.0:3000->3000/tcp
 ```
 
 If you get "no configuration file provided: not found" error, you are wrong directory. You need to be in DL directory.
@@ -38,5 +38,5 @@ If you get "no configuration file provided: not found" error, you are wrong dire
 Connecting to Docker.
 % docker exec -it [NAME] bash
 ```
-% docker container exec -it solana-anchor-react-docker-main_app_1 bash
+% docker container exec -it solana-anchor-react-docker_app_1 bash
 ```
