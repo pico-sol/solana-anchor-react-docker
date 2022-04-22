@@ -14,6 +14,7 @@ RUN apt install -y vim
 RUN apt install -y iputils-ping
 RUN apt install -y git-all
 RUN apt install -y zsh
+RUN apt install -y wget
 
 #--- Setup Rust ---
 # Following arguments(sh -s -- -y) skip for prompt.
