@@ -2,9 +2,9 @@
 Solana x Anchor x React in Docker.
 
 ## Enviornment
-- Debian Buster Slim
+- node:20.7-bullseye
 - Rust latest
-- Solana CLI v 1.8.5
+- Solana CLI v 1.16.14
 - Node latest
 - npm latest
 - n latest
