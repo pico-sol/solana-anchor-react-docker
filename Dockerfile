@@ -15,6 +15,8 @@ RUN apt install -y iputils-ping
 RUN apt install -y git
 RUN apt install -y zsh
 RUN apt install -y wget
+RUN apt install -y pkg-config build-essential libudev-dev libssl-dev
+RUN apt install -y clang
 
 #--- Setup Rust ---
 # Following arguments(sh -s -- -y) skip for prompt.
