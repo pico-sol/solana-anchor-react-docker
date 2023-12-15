@@ -1,16 +1,12 @@
-FROM node:20.7-bullseye
+FROM ubuntu:20.04
+ENV DEBIAN_FRONTEND noninteractive
 
-WORKDIR /usr/src/app
+WORKDIR /app
 COPY . .
-
-#--- Base Command ---
-RUN echo 'alias ll="ls -la"' >> ~/.bashrc
-RUN echo 'alias ll="ls -la"' >> ~/.zshenv
 
 #--- Update & Install Base Packages ---
 RUN apt update
 RUN apt install -y curl
-RUN apt install -y vim
 RUN apt install -y iputils-ping
 RUN apt install -y git
 RUN apt install -y zsh
@@ -28,7 +24,7 @@ RUN ["/bin/bash", "-c", "source $HOME/.cargo/env"]
 RUN rustup component add rustfmt
 
 #--- Install Solana ---
-RUN sh -c "$(curl -sSfL https://release.solana.com/v1.16.14/install)"
+RUN sh -c "$(curl -sSfL https://release.solana.com/v1.16.23/install)"
 # Use ENV instead of source, export and dot command.
 ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
 
@@ -40,9 +36,9 @@ RUN npm install -g n
 RUN n latest
 RUN ln -sf /usr/local/bin/node /usr/bin/node
 
-# RUN npm install -g yarn
+RUN npm install -g yarn
 # for "error:0308010C:digital envelope routines::unsupported" error
-# ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 #--- Install Anchor ---
 RUN npm i -g @project-serum/anchor-cli
@@ -50,3 +46,5 @@ RUN npm i -y mocha
 
 #--- Install React ---
 RUN npm install -g create-react-app
+
+RUN cd /app

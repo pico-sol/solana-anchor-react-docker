@@ -2,9 +2,9 @@
 Solana x Anchor x React in Docker.
 
 ## Enviornment
-- node:20.7-bullseye
+- ubuntu:20.04
 - Rust latest
-- Solana CLI v 1.16.14
+- Solana CLI v 1.16.23
 - Node latest
 - npm latest
 - n latest
@@ -20,7 +20,7 @@ Please version up to latest all. Especially Solana CLI.
 
 2. Run Docker. Make sure running Docker Desktop before it.
 ```
-% docker-compose up -d
+% docker compose up -d
 ```
 
 3. Check running App in Docker Desktop.
@@ -28,9 +28,9 @@ Please version up to latest all. Especially Solana CLI.
 ## Connecting to Docker
 Get Docker NAME.
 ```
-% docker-compose ps
-NAME                                    COMMAND             SERVICE             STATUS              PORTS
-solana-anchor-react-docker_app_1   "bash"              app                 running             0.0.0.0:3000->3000/tcp
+% docker compose ps
+NAME                               IMAGE                            COMMAND       SERVICE   CREATED          STATUS          PORTS
+solana-anchor-react-docker-app-1   solana-anchor-react-docker-app   "/bin/bash"   app       XX seconds ago   Up XX seconds   
 ```
 
 If you get "no configuration file provided: not found" error, you are wrong directory. You need to be in DL directory.
@@ -38,5 +38,5 @@ If you get "no configuration file provided: not found" error, you are wrong dire
 Connecting to Docker.
 % docker exec -it [NAME] bash
 ```
-% docker container exec -it solana-anchor-react-docker_app_1 bash
+% docker container exec -it solana-anchor-react-docker-app-1 bash
 ```

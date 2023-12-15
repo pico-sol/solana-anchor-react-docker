@@ -10,4 +10,4 @@ Cargo.lock
 **/*.rs.bk
 
 # Docker Workdirectory
-/usr_src_app/
+/app/
