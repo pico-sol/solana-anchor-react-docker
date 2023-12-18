@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 
-WORKDIR /app
+WORKDIR /root
 COPY . .
 
 #--- Update & Install Base Packages ---
@@ -47,4 +47,4 @@ RUN npm i -y mocha
 #--- Install React ---
 RUN npm install -g create-react-app
 
-RUN cd /app
+RUN cd /root

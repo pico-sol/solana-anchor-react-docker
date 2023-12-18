@@ -3,6 +3,6 @@ services:
   app:
     build: .
     volumes:
-      - ./app:/app
+      - ./root:/root
     network_mode: "host"
     stdin_open: true
